@@ -1,0 +1,17 @@
+Package: kelloggmktg482
+Title: Kellogg MKTG 482
+Version: 0.0.0.9000
+Authors@R: 
+    person("Blake", "McShane", , "b-mcshane@kellogg.northwestern.edu", role = c("aut", "cre"))
+Description: Provides functions to support Kellogg MKTG 482.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports:
+	tidyverse,
+	ROCR,
+	AlgDesign,
+	vip,
+	pdp
