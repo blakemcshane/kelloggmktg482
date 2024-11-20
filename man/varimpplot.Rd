@@ -4,16 +4,16 @@
 \alias{varimpplot}
 \title{A function to plot a variable importance plot.}
 \usage{
-varimpplot(object, target, data = NULL)
+varimpplot(object, target, data)
 }
 \arguments{
 \item{object:}{a model of class lm, glm, nnet, or ranger.}
 
-\item{data:}{a dataframe on which to evaluate variable importance; optional for models of all classes except ranger; typically a test dataframe.}
+\item{data:}{a dataframe on which to evaluate variable importance; typically a test dataframe.}
 }
 \description{
 Relies on the vip package vi function.
 }
 \examples{
-varimpplot(lr, target="buyer")
+varimpplot(lr, target="buyer", data=bbb)
 }
