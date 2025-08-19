@@ -26,9 +26,10 @@ gainsplot <- function(label.var,...) {
     names(pred.vars)[i - 2] <- deparse(match.call()[[i]])
   }
   
-  
+  p.hat <- as.numeric(table(label.var)/length(label.var))[2]
+  o.hat <- p.hat / (1 - p.hat)
   gains.data.build <- NULL
-  auc.build <- NULL
+  augc.build <- NULL
   for (i in seq_along(pred.vars)) {
     pred.var <- pred.vars[[i]]
     pred <- ROCR::prediction(pred.var, factor(label.var))
@@ -38,13 +39,17 @@ gainsplot <- function(label.var,...) {
                          Percent.customers=as.numeric(unlist(gain@x.values))) %>%
       mutate(Percent.buyers=Percent.buyers*100,
              Percent.customers=Percent.customers*100)
-    auc <- bind_cols(model = colnames(pred.vars)[i],
-                     auc =  round(unlist(ROCR::performance(pred, measure = "auc")@y.values),3))
-    auc.build <- bind_rows(auc.build, auc)
+    auroc <- ROCR::performance(pred, measure = "auc")@y.values[[1]]
+    augc <- (auroc + o.hat/2) / (1 + o.hat)
+    tmp <- bind_cols(
+                model = colnames(pred.vars)[i],
+                augc =  round(augc, 3)
+            )
+    augc.build <- bind_rows(augc.build, tmp)
     gains.data.build <- bind_rows(gains.data.build, gains.data)
   }
-  no.model.data <- tbl_df(data.frame(Percent.buyers=c(0,100),
-                                     Percent.customers=c(0,100)))
+  no.model.data <- as_tibble(data.frame(Percent.buyers=c(0,100),
+                                        Percent.customers=c(0,100)))
   print(ggplot() +
           geom_line(data=gains.data.build,
                     aes(Percent.customers,Percent.buyers,color = Model)) +
@@ -52,6 +57,6 @@ gainsplot <- function(label.var,...) {
                     aes(Percent.customers,Percent.buyers), linetype=3) +
           labs(x="Percent Customers",
                y="Percent Buyers"))
-  auc.build <- tbl_df(data.frame(auc.build))
-  return(auc.build)
+  augc.build <- as_tibble(data.frame(augc.build))
+  return(augc.build)
 }

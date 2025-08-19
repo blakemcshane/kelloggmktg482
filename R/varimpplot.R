@@ -32,9 +32,15 @@ varimpplot <- function(object, target, data){
 		vi0 <- vip::vi(object, target=target,
 			method="permute", metric="rmse", pred_wrapper=predict.internal, train=data)
 	}else{
-		vi0 <- vip::vi(object, target=target, reference_class=1,
+		vi0 <- vip::vi(object, target=target, event_level="first",
       	  	method="permute", metric="roc_auc", pred_wrapper=predict.internal, train=data)
 		vi0$Importance <- -vi0$Importance
+		
+    # Convert Change in AUROC to Change in AUGC
+		p.hat <- as.numeric(table(data[,target])/nrow(data))[2]
+		o.hat <- p.hat / (1 - p.hat)
+    vi0$Importance <- vi0$Importance / (1 + o.hat)
+				
 		vi0 <- vi0[nrow(vi0):1,]
 	}
 
