@@ -48,6 +48,7 @@ gainsplot <- function(label.var,...) {
     augc.build <- bind_rows(augc.build, tmp)
     gains.data.build <- bind_rows(gains.data.build, gains.data)
   }
+  gains.data.build$Model <- factor(gains.data.build$Model, levels=colnames(pred.vars))
   no.model.data <- as_tibble(data.frame(Percent.buyers=c(0,100),
                                         Percent.customers=c(0,100)))
   print(ggplot() +
