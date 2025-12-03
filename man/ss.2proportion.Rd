@@ -2,7 +2,7 @@
 % Please edit documentation in R/expdesign.R
 \name{ss.2proportion}
 \alias{ss.2proportion}
-\title{A function to determine the sample size required to estimate the difference of two proportions given a desired confidence level and interval half width}
+\title{Sample Size Calculation for Two Proportions}
 \usage{
 ss.2proportion(
   halfwidth,
@@ -21,13 +21,10 @@ ss.2proportion(
 \item{proportion2}{(optional with default of .5)}
 }
 \description{
-A function to determine the sample size required to estimate the difference of two proportions given a desired confidence level and interval half width
+This function determines the sample size required to estimate the difference of two proportions given a desired confidence level and interval half width
 }
 \examples{
 ss.2proportion(0.03)
 ss.2proportion(0.03, confidence=0.99)
 ss.2proportion(0.03, confidence=0.99, proportion1=.1, proportion1=.2)
 }
-\keyword{calcuation}
-\keyword{sample}
-\keyword{size}

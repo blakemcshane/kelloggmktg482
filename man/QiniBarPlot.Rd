@@ -2,17 +2,17 @@
 % Please edit documentation in R/uplift.R
 \name{QiniBarPlot}
 \alias{QiniBarPlot}
-\title{A function to plot a Qini Bar Plot for two models.}
+\title{Plotting Qini Bar Plots}
 \usage{
 QiniBarPlot(..., modelnames = NULL)
 }
 \arguments{
-\item{modelnames}{= c("model1", "model2") (optional)}
+\item{..., }{one or more Qini tables}
 
-\item{table1, }{table2, (exactly)}
+\item{modelnames}{= c("model1", "model2") (optional)}
 }
 \description{
-This function allows you to compare model performace by comparing the Qini Bar Plot of two models.
+This function plots the Qini bar plot for one or more models.
 }
 \examples{
 QiniBarPlot(PerfTable_uplift, PerfTable_propensity, modelnames = c("Logit Uplift", "Logit Propensity"))

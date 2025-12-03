@@ -1,12 +1,11 @@
-#' A function to plot a variable importance plot.
+#' Plotting Variable Importance
 #'
-#' Relies on the vip package vi function.
+#' This function plots variable importance. It telies on the vip package vi function.
 #' @param object: a model of class lm, glm, nnet, or ranger.
 #' @param data: a dataframe on which to evaluate variable importance; typically a test dataframe.
 #' @export
 #' @examples
 #' varimpplot(lr, target="buyer", data=bbb)
-
 varimpplot <- function(object, target, data){
 	if(!any(class(object) %in% c("lm", "glm", "nnet", "ranger"))){
 		stop("This function works only for objects of type lm, glm, nnet, and ranger.")

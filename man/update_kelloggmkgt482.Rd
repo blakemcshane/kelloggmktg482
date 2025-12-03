@@ -2,14 +2,13 @@
 % Please edit documentation in R/update.R
 \name{update_kelloggmkgt482}
 \alias{update_kelloggmkgt482}
-\title{A function to update the kelloggmkgt482 package}
+\title{Updating kelloggmktg482}
 \usage{
 update_kelloggmkgt482()
 }
 \description{
-This function allows you to easily update the mkgt482 package from github
+This function updates the kelloggmkgt482 package
 }
 \examples{
 update_kelloggmkgt482()
 }
-\keyword{update}

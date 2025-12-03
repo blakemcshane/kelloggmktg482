@@ -2,20 +2,18 @@
 % Please edit documentation in R/gainsplot.R
 \name{gainsplot}
 \alias{gainsplot}
-\title{A function to plot a gains curve}
+\title{Plotting Gains Curves}
 \usage{
-gainsplot(label.var, ...)
+gainsplot(outcome.var, ...)
 }
 \arguments{
-\item{label.var}{(required)}
+\item{outcome.var, }{a binary outcome variable to be assessed by the scores}
 
-\item{score1, }{score 2, ... (at least 1 required)}
+\item{..., }{one or more scores to assess the outcome variable}
 }
 \description{
-This function allows you to compare model performace by comparing the gains curves of models.
+This function plots the gains curve and returns the area under the gains curve (AUGC) for one or more scores.
 }
 \examples{
-gainsplot(logit1$fitted.values, rf$fitted.values, nn$fitted.values, label.var = bbb$buyer)
+gainsplot(-lean$rec, lean$freq, lean$mon, outcome.var=lean$offer)
 }
-\keyword{auc}
-\keyword{gains,}

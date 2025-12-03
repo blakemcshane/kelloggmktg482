@@ -1,6 +1,6 @@
-#' A function to plot a partial dependence plot.
+#' Plotting Partial Dependence
 #'
-#' Relies on the pdp package partial function.
+#' This function plots partial dependence. It relies on the pdp package partial function.
 #' @param object: a model of class lm, glm, nnet, or ranger.
 #' @param pred.var: a character or a vector of two characters giving the predictor variables for which a partial dependence plot is sought; predictor variables must be of type numeric or factor.
 #' @param data: a dataframe supplying the variables for plotting; typically the dataframe used to estimate the model.
@@ -9,7 +9,6 @@
 #' @export
 #' @examples
 #' pardepplot(lr, pred.var="art", data=bbb)
-
 pardepplot <- function(object, pred.var, data, ylim=NULL, hline=NULL){
 	if(length(pred.var) > 2){ stop("This function supports no more than two pred.vars.") }
 	pred.var.class <- sapply(pred.var, function(x){class(data[,x,drop=TRUE])})

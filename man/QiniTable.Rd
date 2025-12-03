@@ -2,7 +2,7 @@
 % Please edit documentation in R/uplift.R
 \name{QiniTable}
 \alias{QiniTable}
-\title{A function to compute the performance of an uplift estimator.}
+\title{Computing Qini Tables}
 \usage{
 QiniTable(data, treat, outcome, prediction, nb.group = 10)
 }
@@ -18,9 +18,7 @@ QiniTable(data, treat, outcome, prediction, nb.group = 10)
 \item{nb.group:}{(optional, default = 10)}
 }
 \description{
-Adapted from QiniTable in the tools4uplift package
-by Florian Zettelmeyer to ensure that the n-tiles are calculated
-based on the treatment observations, not the stacked observations..
+This function computes the Qini table used to evaluate the performance of an uplift model.
 }
 \examples{
 QiniTable(

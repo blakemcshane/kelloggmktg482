@@ -2,7 +2,7 @@
 % Please edit documentation in R/pardepplot.R
 \name{pardepplot}
 \alias{pardepplot}
-\title{A function to plot a partial dependence plot.}
+\title{Plotting Partial Dependence}
 \usage{
 pardepplot(object, pred.var, data, ylim = NULL, hline = NULL)
 }
@@ -18,7 +18,7 @@ pardepplot(object, pred.var, data, ylim = NULL, hline = NULL)
 \item{hline:}{optimal number specifying the location of a horizontal line.}
 }
 \description{
-Relies on the pdp package partial function.
+This function plots partial dependence. It relies on the pdp package partial function.
 }
 \examples{
 pardepplot(lr, pred.var="art", data=bbb)

@@ -1,8 +1,6 @@
-#' A function to compute the performance of an uplift estimator.
+#' Computing Qini Tables
 #'
-#' Adapted from QiniTable in the tools4uplift package
-#' by Florian Zettelmeyer to ensure that the n-tiles are calculated
-#' based on the treatment observations, not the stacked observations..
+#' This function computes the Qini table used to evaluate the performance of an uplift model.
 #' @param data: a data frame containing the treatment, the outcome and the predictors.
 #' @param treat: name of a binary (numeric) vector representing the treatment assignment (coded as 0/1)
 #' @param outcome: name of a binary response (numeric) vector (coded as 0/1)
@@ -17,9 +15,7 @@
 #'  prediction = "score_logitFit_treat",
 #'  nb.group = 20
 #')
-
 QiniTable <- function(data, treat, outcome, prediction, nb.group = 10){
-
    # Computes the performance of an uplift estimator.
    # 11-10-2019: Adapted from QiniTable in the tools4uplift package
    # by Florian Zettelmeyer to ensure that the n-tiles are calculated
@@ -75,16 +71,14 @@ QiniTable <- function(data, treat, outcome, prediction, nb.group = 10){
    return(dataResults)
 }
 
-
-#' A function to plot a Qini Bar Plot for two models.
+#' Plotting Qini Bar Plots
 #'
-#' This function allows you to compare model performace by comparing the Qini Bar Plot of two models.
-#' @param table1, table2, (exactly)
+#' This function plots the Qini bar plot for one or more models.
+#' @param ..., one or more Qini tables
 #' @param modelnames = c("model1", "model2") (optional)
 #' @export
 #' @examples
 #' QiniBarPlot(PerfTable_uplift, PerfTable_propensity, modelnames = c("Logit Uplift", "Logit Propensity"))
-
 QiniBarPlot <- function(...,modelnames=NULL) {
    arglist <- list(...)
 
@@ -119,15 +113,14 @@ QiniBarPlot <- function(...,modelnames=NULL) {
 }
 
 
-   #' A function to plot a Qini curve for two models.
-   #'
-   #' This function allows you to compare model performace by comparing the Qini curves of two models.
-   #' @param table1, table2, (exactly)
-   #' @param modelnames = c("model1", "model2") (optional)
-   #' @export
-   #' @examples
-   #' QiniCurve2(PerfTable_uplift, PerfTable_propensity, modelnames = c("Logit Uplift", "Logit Propensity"))
-
+#' Plotting Qini Curves
+#'
+#' This function plots the Qini curve for one or more models.
+#' @param ..., one or more Qini tables
+#' @param modelnames = c("model1", "model2") (optional)
+#' @export
+#' @examples
+#' QiniCurve2(PerfTable_uplift, PerfTable_propensity, modelnames = c("Logit Uplift", "Logit Propensity"))
 QiniCurve <- function(...,modelnames=NULL) {
    arglist <- list(...)
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/varimpplot.R
 \name{varimpplot}
 \alias{varimpplot}
-\title{A function to plot a variable importance plot.}
+\title{Plotting Variable Importance}
 \usage{
 varimpplot(object, target, data)
 }
@@ -12,7 +12,7 @@ varimpplot(object, target, data)
 \item{data:}{a dataframe on which to evaluate variable importance; typically a test dataframe.}
 }
 \description{
-Relies on the vip package vi function.
+This function plots variable importance. It telies on the vip package vi function.
 }
 \examples{
 varimpplot(lr, target="buyer", data=bbb)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/expdesign.R
 \name{get.estimable.coefficients}
 \alias{get.estimable.coefficients}
-\title{A function to determine which coefficients can be estimated by a partial factorial design.}
+\title{Getting Estimable Coefficients}
 \usage{
 get.estimable.coefficients(full.design, frac.design)
 }
@@ -12,7 +12,7 @@ get.estimable.coefficients(full.design, frac.design)
 \item{frac.design}{(required)}
 }
 \description{
-A function to determine which coefficients can be estimated by a partial factorial design.
+This function determines which coefficients can be estimated by a partial factorial design.
 }
 \examples{
 library(AlgDesign)
@@ -21,6 +21,3 @@ my.full.design <- expand.grid(my.exp.design) #gen.factorial(my.exp.design, facto
 my.frac.design <- optFederov(data=my.full.design, nTrials=6)  # 6 is minumum so main effects only
 get.estimable.coefficients(my.full.design, my.frac.design)
 }
-\keyword{doe,}
-\keyword{multivariate}
-\keyword{testing}
