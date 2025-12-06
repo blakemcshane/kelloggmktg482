@@ -4,16 +4,16 @@
 \alias{QiniBarPlot}
 \title{Plotting Qini Bar Plots}
 \usage{
-QiniBarPlot(..., modelnames = NULL)
+QiniBarPlot(..., score.names = NULL)
 }
 \arguments{
 \item{..., }{one or more Qini tables}
 
-\item{modelnames}{= c("model1", "model2") (optional)}
+\item{score.names}{= c("score1", "score2") (optional)}
 }
 \description{
-This function plots the Qini bar plot for one or more models.
+This function plots the Qini bar plot for one or more scores.
 }
 \examples{
-QiniBarPlot(PerfTable_uplift, PerfTable_propensity, modelnames = c("Logit Uplift", "Logit Propensity"))
+QiniBarPlot(PerfTable_uplift, PerfTable_propensity, score.names = c("LR Uplift", "LR Propensity"))
 }

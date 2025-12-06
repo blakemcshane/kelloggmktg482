@@ -4,16 +4,16 @@
 \alias{QiniCurve}
 \title{Plotting Qini Curves}
 \usage{
-QiniCurve(..., modelnames = NULL)
+QiniCurve(..., score.names = NULL)
 }
 \arguments{
 \item{..., }{one or more Qini tables}
 
-\item{modelnames}{= c("model1", "model2") (optional)}
+\item{score.names}{= c("score1", "score2") (optional)}
 }
 \description{
-This function plots the Qini curve for one or more models.
+This function plots the Qini curve for one or more scores.
 }
 \examples{
-QiniCurve2(PerfTable_uplift, PerfTable_propensity, modelnames = c("Logit Uplift", "Logit Propensity"))
+QiniCurve2(PerfTable_uplift, PerfTable_propensity, score.names = c("LR Uplift", "LR Propensity"))
 }

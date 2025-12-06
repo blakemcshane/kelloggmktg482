@@ -4,7 +4,7 @@
 \alias{QiniTable}
 \title{Computing Qini Tables}
 \usage{
-QiniTable(data, treat, outcome, prediction, nb.group = 10)
+QiniTable(data, treat, outcome, score, nb.group = 10)
 }
 \arguments{
 \item{data:}{a data frame containing the treatment, the outcome and the predictors.}
@@ -13,7 +13,7 @@ QiniTable(data, treat, outcome, prediction, nb.group = 10)
 
 \item{outcome:}{name of a binary response (numeric) vector (coded as 0/1)}
 
-\item{prediction:}{a score to sort the observations from highest to lowest uplift or propensity.}
+\item{score:}{a score to sort the observations from highest to lowest.}
 
 \item{nb.group:}{(optional, default = 10)}
 }
@@ -25,7 +25,7 @@ QiniTable(
  expdata_stacked.test,
  treat = "ad",
  outcome = "converted",
- prediction = "score_logitFit_treat",
+ score = "pred_lr_uplift",
  nb.group = 20
 )
 }
