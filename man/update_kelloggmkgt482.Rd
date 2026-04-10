@@ -10,5 +10,7 @@ update_kelloggmkgt482()
 This function updates the kelloggmkgt482 package
 }
 \examples{
+\dontrun{
 update_kelloggmkgt482()
+}
 }
